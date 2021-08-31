@@ -1,0 +1,63 @@
+<%= form_with(model: smartphone) do |form| %>
+  <% if smartphone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(smartphone.errors.count, "error") %> prohibited this smartphone from being saved:</h2>
+
+      <ul>
+        <% smartphone.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :Name %>
+    <%= form.text_field :Name, class:"form-control" %>
+  </div>
+
+
+  
+  
+
+  <div class="field form-group">
+    <%= form.label :Model %>
+    <%= form.text_field :Model,class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :Storage_memory %>
+    <%= form.text_field :Storage_memory,class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :RAM_memory %>
+    <%= form.text_field :RAM_memory,class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :Processor %>
+    <%= form.text_field :Processor, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :Camera %>
+    <%= form.text_field :Camera, class:"form-control" %>
+
+  </div>
+
+<div class="field form-group">
+    
+    <%= form.number_field :user_id,id: :smartphone_user_id ,class:"form-control",value: current_user.id, type: :hidden  %>
+
+  </div>
+
+
+  <br/>
+
+  <div class="actions">
+     
+    <%= form.submit class:"btn btn-dark" %>
+  </div>
+<% end %>
+

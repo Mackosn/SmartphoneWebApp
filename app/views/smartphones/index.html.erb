@@ -1,0 +1,52 @@
+
+<% if user_signed_in? %>
+<h1>Smartphones</h1>
+<br/>
+
+<table class="table table-striped table-hover ">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      
+      <th>Storage memory</th>
+      <th>Ram memory</th>
+      <th>Processor</th>
+      <th>Camera</th>
+      <th>User ID</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smartphones.each do |smartphone| %>
+    <% if  smartphone.user == current_user%>
+      <tr>
+        
+        <td><%= link_to smartphone.Name + " " +smartphone.Model,smartphone %></td>
+        <td><%= smartphone.Storage_memory %></td>
+        <td><%= smartphone.RAM_memory %></td>
+        <td><%= smartphone.Processor %></td>
+        <td><%= smartphone.Camera %></td>
+        <td><%= smartphone.user_id %></td>
+        
+       
+      
+
+       <td><%= link_to 'Edit', edit_smartphone_path(smartphone), class:"btn btn-dark btn-sm" %></td>
+        <td><%= link_to 'Destroy', smartphone, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+      </tr>
+
+    
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smartphone', new_smartphone_path , class:"btn btn-dark btn-sm"%>
+<% else %>
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<% end %>

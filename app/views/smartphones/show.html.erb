@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="card-header">
+   <h3> <%= @smartphone.Name %> <%= @smartphone.Model %></h3>
+  </div>
+  <div class="card-body">
+    
+      <p>
+        <strong>Storage memory:</strong>
+    <%= @smartphone.Storage_memory %> 
+    <br/>
+    <strong>Ram memory:</strong>
+    <%= @smartphone.RAM_memory %>
+    <br/>
+    <strong>Processor:</strong>
+    <%= @smartphone.Processor %>
+    <br/>
+    <strong>Camera:</strong>
+    <%= @smartphone.Camera %>
+    <br/>  
+    <br/>
+    <%= link_to 'Edit', edit_smartphone_path(@smartphone), class:"btn btn-dark  btn-sm " %> 
+    <%= link_to 'Back', smartphones_path, class:"btn btn-dark  btn-sm " %>
+      </p>
+      
+    
+    
+  </div>
+</div>
+
+
+
+
